@@ -1,38 +1,56 @@
-# Bloom Beauty Salon — Midterm Project
+# Bloom Beauty Salon Website
 
-**Topic:** Beauty Salon website  
-**Stack:** HTML5, CSS3 (external stylesheet), Bootstrap 5, minimal JS
+## Project Overview
+A modern, responsive website for **Bloom Beauty Salon** built with **Bootstrap 5**, **jQuery**, and **custom CSS**.  
+The website features a **multi-page layout** with comprehensive salon information, a **service booking system**, and **interactive components**.
 
-## What is inside
-- `index.html` — Home (hero, features, pricing table)
-- `about.html` — About & team
-- `services.html` — Services list (uses :nth-child pseudo-class)
-- `gallery.html` — Image gallery (CSS Grid)
-- `contact.html` — Contact & booking form (includes form)
-- `css/style.css` — main stylesheet: CSS variables, Flexbox, Grid, positioning, :hover, :focus, :nth-child
-- `js/main.js` — mobile nav toggle + demo form handler
-- `assets/` — put your images here (logo.png, hero.jpg, gallery-*.jpg, etc.)
+---
 
-## How it meets requirements
-- At least 5 pages with consistent header/footer and navigation.
-- External stylesheet `css/style.css` used (no inline styles).
-- Semantic tags: header, main, section, article, footer, nav.
-- Table present in Home page (pricing) and a contact form on Contact page.
-- CSS variables defined in `:root`.
-- Uses Flexbox for header and footer alignment and CSS Grid for services/gallery/team.
-- Media queries at two breakpoints (992px and 700px).
-- Uses Google Fonts (Montserrat).
-- Images below the fold use `loading="lazy"`.
-- :nth-child pseudo-class is used to style service cards.
-- Includes Bootstrap grid and components via CDN.
+## Project Structure
+bloom-beauty-salon/
+│
+├── index.html # Homepage
+├── about.html # About the salon
+├── services.html # Services and pricing
+├── gallery.html # Work gallery
+├── contact.html # Contact and booking
+│
+├── css/
+│ └── style.css # Custom styles
+│
+├── js/
+│ └── script.js # JavaScript/jQuery functionality
+│
+├── images/ # Section images
+├── gallery/ # Gallery images
+├── assets/ # Additional resources
+│
+└── README.md
 
-## Deploy
-1. Push project to a GitHub repo.
-2. Enable GitHub Pages (Settings → Pages) or deploy on Netlify.
-3. Replace `assets/*` placeholders with actual photos.
+---
 
-## Notes for defense
-Be ready to explain:
-- Why we used CSS Grid for gallery (layout flexibility) and Flexbox for header (alignment).
-- How breakpoints change layouts and font sizing.
-- Where positioning is used (hero background is absolutely positioned; header sticky).
+## Features
+
+### Core Functionality
+- **Fully Responsive Design** – Optimized for desktop, tablet, and mobile devices  
+- **Consistent Design System** – Unified colors, fonts, and styles across all pages  
+- **Navigation** – Sticky header with active menu states  
+- **Services Page** – Detailed service descriptions with pricing and duration  
+- **Gallery** – Grid layout showcasing work examples  
+- **Contact Form** – Booking system with form validation  
+- **Testimonials Carousel** – Interactive slider with client reviews  
+- **Animations** – Smooth fade-in effects on scroll  
+
+---
+
+## Technical Implementation
+- **Bootstrap 5.3.2** – Grid system and UI components  
+- **jQuery 3.6.0** – Interactivity and animations  
+- **Custom CSS** – Unique design with CSS variables  
+- **Vanilla JavaScript** – Additional functionality  
+- **Semantic HTML** – Accessibility and SEO optimization  
+
+---
+
+## Summary
+The Bloom Beauty Salon website delivers a polished, professional online presence with modern design, responsive behavior, and an engaging user experience.
