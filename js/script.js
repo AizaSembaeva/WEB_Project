@@ -74,7 +74,7 @@ if (form) {
     value = value.substring(0, 11);
     
     if (value.startsWith('7') || value.startsWith('8')) {
-        value = '7' + value.substring(1); // Убираем + для простоты
+        value = '7' + value.substring(1); 
     }
   
     let formatted = '+7';
