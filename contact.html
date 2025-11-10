@@ -29,20 +29,29 @@
     <h1>Contact & Booking</h1>
     <div class="row">
       <div class="col-md-6">
-        <form id="contactForm" action="#" method="POST" class="contact-form fade-in">
+        <form id="contactForm" action="#" method="POST" class="contact-form fade-in" novalidate>
           <div class="mb-3">
-            <label for="name" class="form-label">Full name</label>
-            <input id="name" name="name" class="form-control" placeholder="Your name">
+            <label for="name" class="form-label">Name</label>
+            <input id="name" name="name" class="form-control" placeholder="Your full name">
+            <div class="invalid-feedback">Please enter your full name</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input id="email" name="email" type="email" class="form-control" placeholder="your.email@example.com">
+            <div class="invalid-feedback">Please enter a valid email address</div>
           </div>
 
           <div class="mb-3">
             <label for="phone" class="form-label">Phone</label>
             <input id="phone" name="phone" class="form-control" placeholder="+7 (___) ___-____">
+            <div class="invalid-feedback">Please use format: +7 (777) 123-4567</div>
           </div>
 
           <div class="mb-3">
             <label for="service" class="form-label">Service</label>
             <select id="service" name="service" class="form-select">
+              <option value="">Select a service</option>
               <option>Classic Manicure</option>
               <option>Gel Polish</option>
               <option>Nail Extensions</option>
@@ -56,14 +65,28 @@
           </div>
 
           <div class="mb-3">
+            <label for="password" class="form-label">Create Password</label>
+            <input id="password" name="password" type="password" class="form-control" placeholder="Enter password">
+            <div class="invalid-feedback">Password must be at least 8 characters</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm Password</label>
+            <input id="confirmPassword" name="confirmPassword" type="password" class="form-control" placeholder="Confirm your password">
+            <div class="invalid-feedback">Passwords do not match</div>
+          </div>
+
+          <div class="mb-3">
             <label for="date" class="form-label">Preferred date</label>
-            <input id="date" name="date" required type="date" class="form-control">
+            <input id="date" name="date" type="date" class="form-control">
           </div>
 
           <div class="mb-3">
             <label for="message" class="form-label">Notes</label>
             <textarea id="message" name="message" rows="4" class="form-control" placeholder="Any preferences or info..."></textarea>
           </div>
+
+          <div id="formMessages"></div>
 
           <button type="submit" class="btn btn-primary">Send request</button>
         </form>
@@ -80,7 +103,96 @@
         </ul>
       </aside>
     </div>
+    <hr class="my-4">
+
+    <h3 class="mb-3">Client Requests</h3>
+
+    <div class="mb-3">
+      <input type="text" id="search" class="form-control" placeholder="Search by name or email...">
+    </div>
+
+    <table class="table table-striped align-middle" id="clientsTable">
+      <thead>
+        <tr>
+          <th data-sort="name" class="sortable">Name ⬍</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Service</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div class="modal fade" id="editModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="editForm">
+            <div class="modal-header">
+              <h5 class="modal-title">Edit Record</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              <input type="hidden" id="editIndex">
+              <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input id="editName" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input id="editEmail" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Phone</label>
+                <input id="editPhone" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Service</label>
+                <select id="editService" class="form-select" required>
+                  <option value="">Select a service</option>
+                  <option>Classic Manicure</option>
+                  <option>Gel Polish</option>
+                  <option>Nail Extensions</option>
+                  <option>Haircut</option>
+                  <option>Single Color</option>
+                  <option>Complex Coloring</option>
+                  <option>Facial Treatment</option>
+                  <option>Body Treatment</option>
+                  <option>Full Spa Day</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Date</label>
+                <input id="editDate" type="date" class="form-control" required>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-success">Save</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </main>
+
+  <div class="modal fade" id="bookingModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Booking Confirmed!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Thank you for booking with Bloom Beauty Salon. We will contact you shortly to confirm your appointment.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="container footer-inner">
@@ -89,9 +201,12 @@
         <p>Tel: +7 (727) 123-4567 · Address: Abai Ave, Almaty</p>
       </div>
       <div class="social">
-        <a href="#" aria-label="Instagram">IG</a>
-        <a href="#" aria-label="Facebook">FB</a>
+        <a href="https://www.instagram.com/" aria-label="Instagram">IG</a>
+        <a href="https://www.facebook.com/?locale=ru_RU" aria-label="Facebook">FB</a>
       </div>
+    </div>
+    <div class="container copyright">
+      <p>© 2025 Beauty Salon Project</p>
     </div>
   </footer>
 
